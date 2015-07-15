@@ -19,3 +19,6 @@ temp
 *.vpwhistu
 *.vtg
 
+/three.js/tjstss001/tjstss001/bin
+/three.js/tjstss001/tjstss001/obj/Debug
+*.suo
