@@ -11,10 +11,8 @@
         <button id="sphere">SPHERE</button>
         <button id="helix">HELIX</button>
         <button id="grid">GRID</button>
-        <button id="option1" data-model="1">Preset 1</button>
-        <button id="option2" data-model="2">Preset 2</button>
-        <button id="option3" data-model="3">Preset 3</button>
-        <button id="option4" data-model="4">Preset 4</button>
+        <button id="decreaseRadius" data-model="2">-</button>
+        <button id="increaseRadius" data-model="1">+</button>
         <button id="random" data-model="random">Random</button>
     </div>
     <!-- // <script src="/js/three.js"></script> -->
@@ -372,6 +370,32 @@
             }, false);
 
 
+            var button = document.getElementById('increaseRadius');
+            button.addEventListener('click', function (event) {
+
+                isRandomParameters = false;
+                radius += 100;
+                initSphere();
+                initHelix();
+                latestTransform = getTargetsByIndex(latestTransformIndex);
+                transform(latestTransform, transformLength);
+
+            }, false);
+
+
+            var button = document.getElementById('decreaseRadius');
+            button.addEventListener('click', function (event) {
+
+                isRandomParameters = false;
+                radius -= 100;
+                initSphere();
+                initHelix();
+                latestTransform = getTargetsByIndex(latestTransformIndex);
+                transform(latestTransform, transformLength);
+
+            }, false);
+
+
             transform(targets.table, transformLength);
 
             //
@@ -382,7 +406,7 @@
 
         function transform(targets, duration) {
 
-            var duration = duration / 4000
+            var duration = duration / 20000
 
             for (var i = 0; i < objects.length; i++) {
 
