@@ -20,6 +20,8 @@
         var initScene, render, createShape,
             renderer, render_stats, physics_stats, scene, light, ground, ground_material, camera;
 
+        var bumpers = [];
+
         initScene = function () {
             TWEEN.start();
 
@@ -98,7 +100,7 @@
 
             // Bumpers
             var bumper,
-                bumper_geom = new THREE.BoxGeometry(2, 1, 50);
+                bumper_geom = new THREE.BoxGeometry(3, 30, 50);
 
             bumper = new Physijs.BoxMesh(bumper_geom, ground_material, 0, { restitution: .2 });
             bumper.position.y = 1;
@@ -106,12 +108,14 @@
             bumper.receiveShadow = true;
             bumper.castShadow = true;
             scene.add(bumper);
+            bumpers.push(bumper);
 
             bumper = new Physijs.BoxMesh(bumper_geom, ground_material, 0, { restitution: .2 });
             bumper.position.y = 1;
             bumper.position.x = 24;
             bumper.receiveShadow = true;
             bumper.castShadow = true;
+            bumpers.push(bumper);
             scene.add(bumper);
 
             bumper = new Physijs.BoxMesh(bumper_geom, ground_material, 0, { restitution: .2 });
@@ -120,6 +124,7 @@
             bumper.rotation.y = Math.PI / 2;
             bumper.receiveShadow = true;
             bumper.castShadow = true;
+            bumpers.push(bumper);
             scene.add(bumper);
 
             bumper = new Physijs.BoxMesh(bumper_geom, ground_material, 0, { restitution: .2 });
@@ -128,6 +133,7 @@
             bumper.rotation.y = Math.PI / 2;
             bumper.receiveShadow = true;
             bumper.castShadow = true;
+            bumpers.push(bumper);
             scene.add(bumper);
 
             requestAnimationFrame(render);
@@ -180,7 +186,7 @@
                             sphere_geometry,
                             material,
                             undefined,
-                            { restitution: Math.random() * 1.5 }
+                            { restitution: Math.random() * 0.000000005 }
                         );
                         break;
 
@@ -219,7 +225,7 @@
 
                 shape.position.set(
                     Math.random() * 30 - 15,
-                    20,
+                    1200,
                     Math.random() * 30 - 15
                 );
 
@@ -234,13 +240,13 @@
                 }
                 scene.add(shape);
 
-                new TWEEN.Tween(shape.material).to({ opacity: 1 }, 500).start();
+                new TWEEN.Tween(shape.material).to({ opacity: 0.8 }, 200).start();
 
                 document.getElementById('shapecount').textContent = (++shapes) + ' shapes created';
             };
 
             return function () {
-                setTimeout(doCreateShape, 250);
+                setTimeout(doCreateShape, (Math.random() * 1500)+100);
             };
         })();
 

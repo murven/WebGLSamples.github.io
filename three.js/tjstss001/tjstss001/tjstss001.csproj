@@ -19,6 +19,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="css\periodic-table.css" />
     <Content Include="css\styles.css" />
     <Content Include="images\grass.png" />
     <Content Include="images\plywood.jpg" />
@@ -26,14 +27,19 @@
     <Content Include="images\wood.jpg" />
     <Content Include="index.html" />
     <Content Include="js\ammo.js" />
+    <Content Include="js\CSS3DRenderer.js" />
     <Content Include="js\physi.js" />
     <Content Include="js\physijs_worker.js" />
     <Content Include="js\simplex-noise.js" />
     <Content Include="js\stats.js" />
     <Content Include="js\three.min.js" />
+    <Content Include="js\TrackballControls.js" />
     <Content Include="js\tween.js" />
+    <Content Include="js\tween.min.js" />
+    <Content Include="js\TweenMax.min.js" />
     <Content Include="models\mustang.js" />
     <Content Include="models\mustang_wheel.js" />
+    <Content Include="periodic-table.html" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
